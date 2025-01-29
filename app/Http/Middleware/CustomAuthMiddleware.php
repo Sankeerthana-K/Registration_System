@@ -12,6 +12,10 @@ class CustomAuthMiddleware  // Changed class name
     if ($request->is('login') || $request->is('api/login')) {
         return $next($request);
     }
+
+    if ($request->is('register') || $request->is('api/login')) {
+        return $next($request);
+    }
     
     // Check authorization for other routes
     if ($request->header('Authorization') !== 'Bearer your_token') {  
